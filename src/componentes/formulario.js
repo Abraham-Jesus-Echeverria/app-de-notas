@@ -14,36 +14,30 @@ export default class Form extends Component{
   state ={ 
     inputTitle: '',  
     inputText: '', 
-  }
+  } 
   inputEvent = (e) =>{  
     e.target.matches('.title')?this.setState({inputTitle: e.target.value}):this.setState({inputText: e.target.value}); 
-    // if(e.target.matches('.title')){ 
-    //    this.setState({ 
-    //      inputTitle: e.target.value, 
-    //     }); 
-    // }
-    // if(e.target.matches('.text')){  
-    //   this.setState({ 
-    //     inputText: e.target.value, 
-    //    });
-    // }
- 
   } 
     formSubmit = (e) =>{  
-        e.preventDefault()  
+        e.preventDefault()      
+        // this.setState({ 
+        //   date: new Date().toLocaleDateString(),
+        // }); 
         const dataTarea = { 
           id: uuidv(), 
           titulo: this.state.inputTitle.trim(),
           texto: this.state.inputText.trim(), 
-          complete: false, 
+          date: new Date().toLocaleDateString(), 
         }; 
         this.props.changeData(dataTarea); 
+        // ejecutamos esta funcion para pasarle como parametro el objeto data tarea y de esta manera introducir estos elementos dentro del array del estado de lista tarea
     } 
     render(){  
       const {styleForm} = this.props
         return( 
             <> 
-            <form onSubmit={(e)=>this.formSubmit(e) } className={styleForm}> 
+            <form onSubmit={(e)=>this.formSubmit(e) } className={styleForm}>  
+            <h2 className="">Ingresa tu tarea</h2>
             <div className="form-group mb-2">  
                 <label htmlFor="title" className="form-label">Ingresa el nombre de la tarea</label>
                 <input id="title" type="text" placeholder="Nombre..." className="form-control title" onChange={this.inputEvent}/>  

@@ -18,12 +18,12 @@ export default class Card extends Component{
     render(){  
       const {data, deleteTarea} = this.props
         return( 
-            <>  
-            <div className="d-flex justify-content-center"> 
-            <div className={`card w-50 border border-secondary mt-5 ${this.state.dataComplete && 'bg-warning'}`} >  
+            <> 
+            <div className="col-4 p-2">   
+            <div className={`card border border-secondary ${this.state.dataComplete && 'bg-warning'}`} >  
               <div className="card-header d-flex justify-content-between">  
                 <h2 className="card-title h5">{data.titulo}</h2> 
-                <p className="h5">12/09/2022</p>
+                <p className="h6">{data.date}</p>
               </div> 
               <div className="card-body"> 
                 <div className={`card-text ${this.state.dataComplete && 'text-decoration-line-through'}`}>{data.texto}</div>
@@ -32,7 +32,7 @@ export default class Card extends Component{
                   <Button styleButton={'btn-success'} eventButton={this.tareaComplete}><i className="fa-solid fa-check"></i></Button>
                 </div>
               </div>
-            </div> 
+            </div>  
             </div>
             </>
         ); 

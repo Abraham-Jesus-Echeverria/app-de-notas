@@ -30,11 +30,13 @@ export default class ListaTareas extends Component{
             <>  
             <div className="container-fluid"> 
               <div className="row">
-                <Form styleForm={"col-2 vh-100 d-flex flex-sm-column"} changeData={this.changeData} />
-                  <div className="bg-danger col-10">  
+                <Form styleForm={"col-3 vh-100 d-flex flex-sm-column p-3 border-end border-2"} changeData={this.changeData} />
+                  <div className="col-9 p-0">  
+                    <div className="row w-100 mx-auto">  
                       {  
                       this.state.data.map(elementos =><Card key={elementos.id} data={elementos} deleteTarea={this.deleteTarea} />)
-                      } 
+                      }  
+                    </div>
                   </div> 
               </div>  
           </div>
